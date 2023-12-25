@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 header{
@@ -10,6 +11,8 @@ header{
     justify-content: space-between;
     height: 40px;
     padding: 0 20px;
+    font-size: larger;
+    user-select: none;
 }
 button{
     border: none;
@@ -27,7 +30,10 @@ button{
 
 }
 #menu{
-   
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
     width: 150px;
     height: calc(100vh - 55px);
     padding: 20px;
@@ -36,18 +42,26 @@ button{
 #menu li{
     list-style: none;
     margin: 10px 0;
-}
-.wrapp{
     display: flex;
     align-items: center;
+    cursor: grab;
+    user-select: none;
+}#menu li svg{
+    margin-right: 5px;
+}
+
+.wrapp{
+    display: flex;
+    align-items: flex-start;
     justify-content: center;
     
     width: calc(100% - 150px);
     height: calc(100vh - 75px);
 }
 iframe{
-    width:366px;
-    height: calc(100vh - 55px);
-    border: 1px solid #747474;
-    border-radius: 10px;
+    width:1100px;
+    height: calc(100vh - 50px);
+    border: 1px solid #fafafa;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
 }
