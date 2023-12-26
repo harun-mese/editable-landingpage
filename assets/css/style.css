@@ -4,25 +4,49 @@
     box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
+body{
+    background-color:white;
+}
 header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 40px;
-    padding: 0 20px;
+    height: 50px;
+    padding: 5px 20px;
     font-size: larger;
     user-select: none;
 }
 button{
     border: none;
-    background-color: #fff;
+    background-color: transparent;
     margin: 5px;
+}
+
+#edit_bar{
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#sizes_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 1px solid #d2d2d2;
+}
+
+#draft{
+    color: tomato;
+}
+#publish{
+    color: green;
 }
 
 .container{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     height: calc(100vh - 55px);
     width: 100%;
@@ -54,14 +78,13 @@ button{
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    
+    padding: 0 10px;
     width: calc(100% - 150px);
     height: calc(100vh - 75px);
 }
 iframe{
-    width:1100px;
     height: calc(100vh - 50px);
-    border: 1px solid #fafafa;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
+    border: 1px solid #d2d2d2;  
 }
+
+
