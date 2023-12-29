@@ -7,6 +7,9 @@
 body{
     background-color: #fff;
 }
+.editable{
+    padding: 3px;
+}
 img{
     width: 100%;
     display: block;
@@ -41,4 +44,13 @@ section div{
     flex: 1;
     height: 200px;
     margin: 10px;
+}
+span{
+    border: 1px dashed red;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    transform: rotate(-15deg) scale(.7);
+    background-color: #fff;
+    outline: 1px solid blue;
 }

@@ -7,11 +7,11 @@
 body{
     background-color:white;
 }
+
 header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 50px;
+    justify-content: center;
     padding: 5px 20px;
     font-size: larger;
     user-select: none;
@@ -25,62 +25,104 @@ button{
 #edit_bar{
     border: 1px solid #d2d2d2;
     border-radius: 10px;
-    padding: 0 5px;
+    padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 #sizes_bar{
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-left: 1px solid #d2d2d2;
+    padding-left: 10px;
+    margin-left: 10px;
 }
+#blokMenu{
+    border-right: 1px solid #d2d2d2;
+    padding-right: 10px;
+    margin-right: 10px; 
+}
+#action_bar{
+    position: absolute;
+    right: 20px;
 
+}
 #draft{
     color: tomato;
+    border: 1px solid tomato;
+    border-radius: 10px;
+    padding: 10px 15px;
 }
 #publish{
     color: green;
+    border :1px solid green;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+#draft:hover{
+    background-color: tomato;
+    color: white;
+}
+#publish:hover{
+    background-color: green;
+    color: white;
 }
 
 .container{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    height: calc(100vh - 55px);
+    height: 100vh;
     width: 100%;
-    position: relative;
+    
 
 }
 #menu{
-    display: flex;
+    display: none;
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
     width: 150px;
-    height: calc(100vh - 55px);
-    padding: 20px;
+    height:100vh;
+    padding-left: 10px;
+    padding-top: 20px;
     cursor: pointer;
 }
 #menu li{
     list-style: none;
-    margin: 10px 0;
+    padding: 15px 0;
     display: flex;
     align-items: center;
     cursor: grab;
     user-select: none;
+    width: 100%;
+    color: black;
 }#menu li svg{
     margin-right: 5px;
 }
-
+#blocks{
+margin-top: 5px;
+padding: 10px 0;
+padding-bottom: 50px;
+box-sizing: border-box;
+}
+#blocks li{
+    border-radius: 5px;
+    padding: 15px 25px 15px 15px;
+}
+#tools_bar{
+    padding-left: 15px;
+}
 .wrapp{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
     padding: 0 10px;
-    width: calc(100% - 150px);
-    height: calc(100vh - 75px);
+    width: 100%;
+    height: 100vh;
+    position: relative;
 }
 iframe{
     height: calc(100vh - 50px);
