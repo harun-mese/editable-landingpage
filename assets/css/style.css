@@ -12,14 +12,15 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 20px;
+    padding: 5px 2px;
     font-size: larger;
     user-select: none;
+    
 }
 button{
     border: none;
     background-color: transparent;
-    margin: 5px;
+    margin:0 5px;
 }
 
 #edit_bar{
@@ -30,7 +31,12 @@ button{
     align-items: center;
     justify-content: center;
 }
-#sizes_bar{
+select{
+    padding: 3px 0px;
+    border: none;
+    outline: none;
+}
+.rborder{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,9 +50,8 @@ button{
     margin-right: 10px; 
 }
 #action_bar{
-    position: absolute;
-    right: 20px;
-
+    /* position: absolute;
+    right: 20px; */
 }
 #draft{
     color: tomato;
@@ -59,6 +64,7 @@ button{
     border :1px solid green;
     border-radius: 10px;
     padding: 10px 15px;
+    margin: 0;
 }
 #draft:hover{
     background-color: tomato;
@@ -83,18 +89,19 @@ button{
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    width: 150px;
+    width: 250px;
     height:100vh;
     padding-left: 10px;
     padding-top: 20px;
     cursor: pointer;
+    border-right: 1px solid #d2d2d2;
 }
 #menu li{
     list-style: none;
     padding: 15px 0;
     display: flex;
     align-items: center;
-    cursor: grab;
+    
     user-select: none;
     width: 100%;
     color: black;
@@ -110,6 +117,13 @@ box-sizing: border-box;
 #blocks li{
     border-radius: 5px;
     padding: 15px 25px 15px 15px;
+    cursor: pointer;
+}
+#blocks li:active{
+    cursor:grabbing;
+}
+#blocks li:hover{
+   color: tomato;
 }
 #tools_bar{
     padding-left: 15px;
@@ -129,4 +143,35 @@ iframe{
     border: 1px solid #d2d2d2;  
 }
 
+.attributes{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 250px;
+    height:100vh;
+    padding-left: 10px;
+    padding-top: 20px;
+    cursor: pointer;
+    border-left: 1px solid #d2d2d2;
+}
+.attributes div{
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+    padding: 15px;
+}
 
+.fontsContainer{
+    position: absolute;
+    background-color: #fff;
+    top: 60px;
+    width: 600px;
+    height: 200px;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+}

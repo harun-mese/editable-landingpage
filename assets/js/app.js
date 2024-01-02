@@ -1,8 +1,20 @@
-var allElements = document.querySelectorAll('.editable')
+
+
 let frame = document.querySelector('iframe')
+// text editting functions
+var frameContent = frame.contentDocument || frame.contentWindow.document;
+//console.log(frameContent);
+var allElements = frameContent.querySelectorAll('.editable')
 
 
-//console.log(allElements);
+function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
+   frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
+}
+
+
+
+
+console.log(allElements);
 
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
@@ -23,10 +35,12 @@ images.forEach(img=>{
 //assets/images/IMG_2184.jpeg
 
 
-function size(width) {
-   
-   frame.width = width
-   frame.style.position='unset'
+const sizeSelect = document.getElementById('sizeSelect')
+sizeSelect.addEventListener('change',()=>{size()})
+
+function size() { 
+   frame.width = sizeSelect.value
+    frame.style.position='unset'
     frame.style.top='unset'
     frame.style.left='unset'
     frame.style.right='unset'
@@ -35,25 +49,14 @@ function size(width) {
 
 function full() {
     let frame = document.querySelector('iframe')
-    frame.style.position='absolute'
-    frame.style.top=0
+    frame.style.position='relative'
+    frame.style.top=69
     frame.style.left=0
     frame.style.right=0
     frame.style.bottom=0
     frame.width="100%"
-    frame.height="100vh"
 
  }
-
-
- // text editting functions
- var frameContent = frame.contentDocument || frame.contentWindow.document;
- //console.log(frameContent);
-
- function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
-    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
- }
-
 
  // block yer degisim denemeleri
 
@@ -82,7 +85,6 @@ function addBlocksIdsList(){
 addBlocksIdsList()
 
 
-
 var container, targetElem, dragElem
 container = document.getElementById('blocks')
 
@@ -90,9 +92,6 @@ container = document.getElementById('blocks')
 //container.addEventListener('dragover',dragOver(event))
 //container.addEventListener('dragend',dragEnd(event))
 //container.addEventListener('dragleave',dragLeave(event))
-
-
-
 
 var newBlockList =[]
 
@@ -126,7 +125,7 @@ function dragStart(e){
    
 }
 
-  function dragOver(e) {
+function dragOver(e) {
     e.preventDefault();
     //e.target.style.borderTop="1px solid gray"
     //console.log('birakma alani : ' + e.target);
@@ -138,20 +137,16 @@ function dragStart(e){
         container.insertBefore(dragElem, targetElem)
     }
     //newOrderBlocks()
-  }
+}
 
-  function dragLeave(e) {
+function dragLeave(e) {
     e.preventDefault();
-   // e.target.style.transform="translateY(0px)"
-    e.target.style.borderTop="none"
-    dragElem.style.color='black'
-  }
+}
 
-  function dragEnd(e) {
-    e.preventDefault();
-    dragElem.style.color='black'
-    dragElem.style.backgroundColor=''
-  }
+function dragEnd(e) {
+e.preventDefault();
+dragElem.style.backgroundColor=''
+}
 
   
 
@@ -177,14 +172,27 @@ function dragStart(e){
   }
 
 
-  var stateMenu = true
-  function openBlockMenu(){
-    if (stateMenu) {
+  
+  
+  var Menu = true
+  var Attributes = true
+
+  function toggleMenu(){
+    if (Menu) {
         document.querySelector('#menu').style.display='flex'
-        stateMenu = false
+        Menu = false
     }else{
         document.querySelector('#menu').style.display='none'
-        stateMenu = true
+        Menu = true
     }
-    
+  }
+  function toggleAttr(){
+   
+    if (Attributes) {
+        document.querySelector('.attributes').style.display='flex'
+        Attributes = false
+    }else{
+        document.querySelector('.attributes').style.display='none'
+        Attributes = true
+    }
   }
