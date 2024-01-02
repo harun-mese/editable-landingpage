@@ -172,18 +172,34 @@ iframe{
     background-color: #fff;
     top: 60px;
     width: 600px;
-    height: 200px;
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
     border: 1px solid #d2d2d2;
     border-radius: 10px;
     padding: 10px;
 }
+.fontsContainer button{
+    font-size: xx-large;
+}
+.fontsContainer button,.fontColorContainer button{
+    cursor: pointer;
+}
+.fontColorContainer button{
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 34px;
+}
+.fontsContainer button:hover, .fontColorContainer button:hover{
+    scale: 1.1;
+}
 .fontColorContainer{
     display: none;
     position: absolute;
-    background-color: #fff;
+    background-color: #ffffff;
     top: 60px;
     width: 400px;
-    height: 200px;
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
     border: 1px solid #d2d2d2;
     border-radius: 10px;
     padding: 10px;
