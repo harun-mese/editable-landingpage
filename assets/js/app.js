@@ -5,6 +5,8 @@ let frame = document.querySelector('iframe')
 var frameContent = frame.contentDocument || frame.contentWindow.document;
 //console.log(frameContent);
 var allElements = frameContent.querySelectorAll('.editable')
+const fontsContainer = document.querySelector('.fontsContainer')
+const fontColorContainer = document.querySelector('.fontColorContainer')
 
 
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
@@ -18,7 +20,7 @@ console.log(allElements);
 
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
-var images = document.querySelectorAll('img')
+var images = frameContent.querySelectorAll('img')
 
 images.forEach(img=>{
     img.addEventListener('click',(e)=>{
@@ -56,6 +58,30 @@ function full() {
     frame.style.bottom=0
     frame.width="100%"
 
+ }
+
+ var fontsContainerBool = false
+ var fontColorContainerBool = false
+
+ function toggleFontsContainer(){
+    if (!fontsContainerBool) {
+        fontsContainer.style.display='block' 
+        fontsContainerBool = true
+    }else{
+        fontsContainer.style.display='none'
+        fontsContainerBool = false
+    }
+    
+ }
+ function toggleFontColorContainer(){
+    if (!fontColorContainerBool) {
+        fontColorContainer.style.display='block' 
+        fontColorContainerBool = true
+    }else{
+        fontColorContainer.style.display='none'
+        fontColorContainerBool = false
+    }
+    
  }
 
  // block yer degisim denemeleri

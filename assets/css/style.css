@@ -167,6 +167,7 @@ iframe{
 }
 
 .fontsContainer{
+    display: none;
     position: absolute;
     background-color: #fff;
     top: 60px;
@@ -174,4 +175,16 @@ iframe{
     height: 200px;
     border: 1px solid #d2d2d2;
     border-radius: 10px;
+    padding: 10px;
+}
+.fontColorContainer{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    top: 60px;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+    padding: 10px;
 }
