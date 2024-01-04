@@ -1,9 +1,6 @@
-
-
 let frame = document.querySelector('iframe')
-// text editting functions
 var frameContent = frame.contentDocument || frame.contentWindow.document;
-//console.log(frameContent);
+
 var allElements = frameContent.querySelectorAll('.editable')
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
@@ -12,8 +9,6 @@ const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColo
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
 }
-
-
 
 
 console.log(allElements);
