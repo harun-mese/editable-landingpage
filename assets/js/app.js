@@ -7,7 +7,7 @@ var frameContent = frame.contentDocument || frame.contentWindow.document;
 var allElements = frameContent.querySelectorAll('.editable')
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
-
+const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
 
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
@@ -35,6 +35,16 @@ images.forEach(img=>{
 
 //assets/images/resim2.jpeg
 //assets/images/IMG_2184.jpeg
+const scaleSelect = document.getElementById('scaleSelect')
+scaleSelect.addEventListener('change',()=>{
+    console.log(frame.style.height);
+    frame.style.transform = `scale(${scaleSelect.value})`
+    console.log(scaleSelect.value);
+    frame.style.transformOrigin = '50% 0';
+    frame.style.height = `calc((100vh - 60px) * (1 / ${scaleSelect.value}))`
+   
+})
+
 
 
 const sizeSelect = document.getElementById('sizeSelect')
@@ -42,26 +52,12 @@ sizeSelect.addEventListener('change',()=>{size()})
 
 function size() { 
    frame.width = sizeSelect.value
-    frame.style.position='unset'
-    frame.style.top='unset'
-    frame.style.left='unset'
-    frame.style.right='unset'
-    frame.style.bottom='unset'
 }
 
-function full() {
-    let frame = document.querySelector('iframe')
-    frame.style.position='relative'
-    frame.style.top=69
-    frame.style.left=0
-    frame.style.right=0
-    frame.style.bottom=0
-    frame.width="100%"
-
- }
 
  var fontsContainerBool = false
  var fontColorContainerBool = false
+ var fontBackgroundColorContainerBool = false
 
  function toggleFontsContainer(){
     if (!fontsContainerBool) {
@@ -84,6 +80,19 @@ function full() {
     
  }
 
+ function toggleFontBackgroundColorContainer(){
+    if (!fontBackgroundColorContainerBool) {
+        fontBackgroundColorContainer.style.display='block' 
+        fontBackgroundColorContainerBool = true
+    }else{
+        fontBackgroundColorContainer.style.display='none'
+        fontBackgroundColorContainerBool = false
+    }
+    
+ }
+
+
+ fontBackgroundColorContainer
  // block yer degisim denemeleri
 
  var blocks = frameContent.querySelectorAll('.block')
