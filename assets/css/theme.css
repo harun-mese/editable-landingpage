@@ -13,6 +13,11 @@ body{
 .editable{
     padding: 3px;
 }
+.editable:focus{
+    border-radius: 0px;
+    outline: none;
+    border: none;
+}
 img{
     width: 100%;
     display: block;
@@ -21,7 +26,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 84px;
     border-bottom: 1px solid #fafafa;
     padding: 0 15px;
 }

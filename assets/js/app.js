@@ -40,6 +40,12 @@ scaleSelect.addEventListener('change',()=>{
    
 })
 
+const pagesSelect = document.getElementById('pagesSelect')
+pagesSelect.addEventListener('change',()=>{
+
+    frame.src = pagesSelect.value
+    
+})
 
 
 const sizeSelect = document.getElementById('sizeSelect')
@@ -195,7 +201,7 @@ dragElem.style.backgroundColor=''
     newBlockList.forEach(item=>{
         frameBlocks.forEach(block=>{
             if (block.id == item) {
-                frameContent.querySelector('main').appendChild(block)
+                frameContent.body.appendChild(block)
             }
         })
     })
@@ -209,20 +215,38 @@ dragElem.style.backgroundColor=''
 
   function toggleMenu(){
     if (Menu) {
-        document.querySelector('#menu').style.display='flex'
+        document.querySelector('#menu').style.width='250px'
+        //document.querySelector('#menu').style.transform='translateX(0)'
         Menu = false
     }else{
-        document.querySelector('#menu').style.display='none'
+        document.querySelector('#menu').style.width='0px'
+        //document.querySelector('#menu').style.transform='translateX(-250px)'
         Menu = true
     }
   }
   function toggleAttr(){
-   
+   //clickFrameContentBtn.style.color = 'tomoto'
+   document.querySelector('#clickFrameContentBtn').style.color = 'tomato'
     if (Attributes) {
-        document.querySelector('.attributes').style.display='flex'
+        //document.querySelector('.attributes').style.display='flex'
+        //document.querySelector('.attributes').style.width='300px'
+        //document.querySelector('.attributes').style.padding='10px'
+        // console.log(frameContent.body.children);
+        document.querySelector('#clickFrameContentBtn').style.color = 'tomato'
         Attributes = false
     }else{
-        document.querySelector('.attributes').style.display='none'
+        //document.querySelector('.attributes').style.display='none'
+        //document.querySelector('.attributes').style.width='0px'
+        //document.querySelector('.attributes').style.padding='0px'
+        document.querySelector('#clickFrameContentBtn').style.color = 'black'
         Attributes = true
     }
   }
+
+
+  frameContent.body.addEventListener('click',(event)=>{
+    console.log(event.target);
+    //event.target
+    //toggleAttr()
+
+  })
