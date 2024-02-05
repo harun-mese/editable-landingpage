@@ -7,7 +7,9 @@
 :root{
     --border-gray:1px solid #c1c1c1;
     --border-radius:10px;
-    --bgc-primary:tomato;
+    --bgc-primary:rgb(246, 246, 246);
+    --bgc-secondary:teal;
+
 }
 body{
     background-color:white;
@@ -16,18 +18,29 @@ body{
 header{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
     padding: 5px 2px;
     font-size: larger;
     user-select: none;
     position: fixed;
-    top: 2px;
-    z-index: 1;
+    top: 0px;
+    z-index: 99999;
+    background-color: #ffffff77;
+    border-bottom: var(--border-gray);
+}
+.svg-group svg{
+    margin: 10px;
 }
 button{
     border: none;
     background-color: transparent;
-    margin:0 5px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #edit_bar{
@@ -38,9 +51,12 @@ button{
     align-items: center;
     justify-content: center;
     background-color: #ffffffaa;
+    position: fixed;
+    top: 8px;
+    z-index: 9999999;
 }
 select{
-    padding: 5px 0px;
+    padding: 2px 0px;
     border: none;
     outline: none;
     /* -webkit-appearance: none; */
@@ -61,31 +77,6 @@ select{
     margin-right: 10px; 
     display: none;
 }
-#action_bar{
-    /* position: absolute;
-    right: 20px; */
-}
-#draft{
-    color: tomato;
-    border: 1px solid tomato;
-    border-radius: 10px;
-    padding: 10px 15px;
-}
-#publish{
-    color: green;
-    border :1px solid green;
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin: 0;
-}
-#draft:hover{
-    background-color: tomato;
-    color: white;
-}
-#publish:hover{
-    background-color: green;
-    color: white;
-}
 
 .container{
     display: flex;
@@ -93,7 +84,7 @@ select{
     justify-content: space-between;
     height: 100vh;
     width: 100%;
-    background-color:darkturquoise;
+    background-color: var(--bgc-secondary);
 }
 
 #menu{
@@ -101,24 +92,22 @@ select{
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #ffffff77;
     width: 0px;
-    height: 100vh;
+    height: calc(100vh - 60px);
     z-index: 99999;
-    padding-top: 15px; 
+    padding: 5px 0; 
     border-right: var(--border-gray);
     /* border-radius: var(--border-radius);
     box-shadow: 0 0 3px 0 gray; */
     position: relative;
+    top: 60px;
     overflow: hidden;
     transition: width .4s ease-in-out;
 
     white-space: nowrap;
 }
-#appName{
-    width: 100%;
-    padding-left: 60px;
-}
+
 #menu li{
     list-style: none;
     padding: 15px 0px;
@@ -150,14 +139,15 @@ border: none;
     scale: .98;
 }
 #blocks{
-height: calc(100vh - 250px);
-margin-top: 5px;
-padding: 10px;
+height: calc(100vh - 60px);
+
+padding:0 10px;
+padding-bottom: 5px;
 box-sizing: border-box;
 overflow-y: scroll;
 }
 #blocks li{
-    background-color: #fafafa;
+    background-color: #f3f3f371;
     border-radius: 5px;
     padding: 15px 45px 15px 15px;
     height: 50px;
@@ -169,18 +159,15 @@ overflow-y: scroll;
     cursor:grabbing;
 }
 #blocks li:hover{
-   color: tomato;
-   background-color: antiquewhite;
+   background-color: #e7e7e7;
 }
 #tools_bar{
-    height: 100px;
+    height: 60px;
     width: 250px;
-    display: flex;
+    display: none;
     /* grid-template-columns: auto auto; */
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     border-top: var(--border-gray);
 }
 #tools_bar li{
@@ -198,27 +185,15 @@ justify-content: center;
 background-color: tomato;
 color: #fff;
 }
+
 #menuToggle{
-    width: 49px;
-    height: 49px;
-    border-radius: 50%;
-    position: fixed;
-    left: 0px;
-    top: 7px;
-    z-index: 999999999;
-    /* border: var(--border-gray); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
 }
 #menuToggle:hover{
-    background-color: rgba(214, 214, 214, 0.674);
 }
 #menuToggle:active{
-    background-color: rgb(194, 194, 194);
-    scale: .9;
 }
+
+
 #saveAndPublishBtn{
     width: 100px;
     height: 49px;
@@ -247,7 +222,7 @@ color: #fff;
 }
 iframe{
     border: var(--border-gray);  
-    border-radius: 10px 10px 0 0 ;
+    /* border-radius: 10px 10px 0 0 ; */
     /* box-shadow: 0 0 2px 3px #e1e1e1; */
     position: fixed;
     height: calc(100% - 65px);
