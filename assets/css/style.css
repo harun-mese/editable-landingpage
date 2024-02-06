@@ -10,6 +10,7 @@
     --bgc-primary:rgb(246, 246, 246);
     --bgc-secondary:teal;
 
+    
 }
 body{
     background-color:white;
@@ -84,7 +85,7 @@ select{
     justify-content: space-between;
     height: 100vh;
     width: 100%;
-    background-color: var(--bgc-secondary);
+    background-color: var(--bgc-primary);
 }
 
 #menu{
