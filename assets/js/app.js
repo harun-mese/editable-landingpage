@@ -36,7 +36,7 @@ scaleSelect.addEventListener('change',()=>{
     frame.style.transform = `scale(${scaleSelect.value})`
     console.log(scaleSelect.value);
     frame.style.transformOrigin = '50% 0';
-    frame.style.height = `calc((100vh - 60px) * (1 / ${scaleSelect.value}))`
+    frame.style.height = `calc((100vh - 45px) * (1 / ${scaleSelect.value}))`
    
 })
 
