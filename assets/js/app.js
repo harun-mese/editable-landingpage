@@ -6,6 +6,79 @@ const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
 
+
+let mobileBtn = document.getElementById("mobileBtn")
+let mobileSelect = document.getElementById("mobileSelect")
+let laptopBtn = document.getElementById("laptopBtn")
+let laptopSelect = document.getElementById("laptopSelect")
+let desktopBtn = document.getElementById("desktopBtn")
+let desktopSelect = document.getElementById("desktopSelect")
+
+let mobileSelectStatus = true
+let laptopSelectStatus = true
+let DesktopSelectStatus = true
+
+
+const sizeBtns = [mobileBtn,laptopBtn,desktopBtn]
+const sizeBtnsSelects = [mobileSelect,laptopSelect,desktopSelect]
+
+sizeBtns.forEach((item,index)=>{
+    item.addEventListener("click",()=>{
+        if(mobileSelectStatus){
+            sizeBtnsSelects.forEach(item=>{
+                item.style.display="none"
+            })
+            sizeBtnsSelects[index].style.display="flex"
+
+            mobileSelectStatus = false
+        }else{
+            mobileSelect.style.display="none"
+            mobileSelectStatus = true
+        }
+    })
+})
+
+function mobileSelect(params) {
+    
+}
+
+
+mobileBtn.addEventListener("click",()=>{
+    if(mobileSelectStatus){
+        mobileSelect.style.display="flex"
+        mobileSelectStatus = false
+    }else{
+        mobileSelect.style.display="none"
+        mobileSelectStatus = true
+    }
+})
+laptopBtn.addEventListener("click",()=>{
+    if(laptopSelectStatus){
+        laptopSelect.style.display="flex"
+        laptopSelectStatus = false
+    }else{
+        laptopSelect.style.display="none"
+        laptopSelectStatus = true
+    }
+    
+})
+desktopBtn.addEventListener("click",()=>{
+    if(DesktopSelectStatus){
+        desktopSelect.style.display="flex"
+        DesktopSelectStatus = false
+    }else{
+        desktopSelect.style.display="none"
+        DesktopSelectStatus = true
+    }
+})
+
+
+
+
+
+
+
+
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
 }
@@ -27,9 +100,6 @@ images.forEach(img=>{
 })
 })
 
-
-//assets/images/resim2.jpeg
-//assets/images/IMG_2184.jpeg
 const scaleSelect = document.getElementById('scaleSelect')
 scaleSelect.addEventListener('change',()=>{
     console.log(frame.style.height);
@@ -48,11 +118,8 @@ pagesSelect.addEventListener('change',()=>{
 })
 
 
-const sizeSelect = document.getElementById('sizeSelect')
-sizeSelect.addEventListener('change',()=>{size()})
-
-function size() { 
-   frame.width = sizeSelect.value
+function size(width) { 
+   frame.width = width
 }
 
 
