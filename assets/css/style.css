@@ -7,17 +7,17 @@
 :root{
     --border-gray:1px solid #c1c1c1;
     --border-radius:10px;
-    --bgc-primary:rgb(246, 246, 246);
+    --bgc-primary:#ffffff;
     --bgc-secondary:teal;
     --bgc-light:rgb(255, 255, 255);
-    --bgc-header:#f5f5f7;
+    --bgc-header:#f5f5f791;
 
     
 }
 body{
-    background-color:white;
-}
+    background-color: tomato;
 
+}
 header{
     display: flex;
     align-items: center;
@@ -28,11 +28,11 @@ header{
     font-size: larger;
     user-select: none;
     position: fixed;
+    z-index:99;
+    background-color: #ffffff8e;
     top: 0px;
-    z-index: 99999;
-    background-color: #f5f5f7;
     border-bottom: var(--border-gray);
-    border-top: var(--border-gray);
+    /* border-top: var(--border-gray); */
 }
 .svg-group{
     display: flex;
@@ -44,6 +44,7 @@ header{
     padding:0 10px;
     width: 36px;
     height: 36px;
+    color: black;
 }
 .svg-group svg:hover{
     background-color: #dfdfdf;
@@ -108,7 +109,7 @@ header{
     background-color: #ffffff00;
     position: fixed;
     top: 5px;
-    z-index: 9999999;
+    z-index: 999;
 }
 select{
     padding: 2px 0px;
@@ -160,7 +161,7 @@ select[name="pages"]{
     justify-content: space-between;
     height: 100vh;
     width: 100%;
-    background-color: var(--bgc-light);
+    /* background-color: var(--bgc-light); */
 }
 
 #menu{
@@ -168,7 +169,7 @@ select[name="pages"]{
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    background-color: #fafafa;
+    background-color: #ffffff8e;
     width: 0px;
     height: calc(100vh - 44px);
     z-index: 99999;
@@ -310,7 +311,7 @@ color: #fff;
     height: 100vh;
     position: relative;
     overflow: hidden;
-   
+    
 
 }
 iframe{
@@ -318,8 +319,8 @@ iframe{
     /* border-radius: 10px 10px 0 0 ; */
     /* box-shadow: 0 0 2px 3px #e1e1e1; */
     position: fixed;
-    height: calc(100% - 45px);
-    top: 45px;
+    height: calc(100% - 50px);
+    top: 50px;
     z-index: 0;
 }
 
