@@ -5,73 +5,7 @@ var allElements = frameContent.querySelectorAll('.editable')
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
-
-
-let mobileBtn = document.getElementById("mobileBtn")
-let mobileSelect = document.getElementById("mobileSelect")
-let laptopBtn = document.getElementById("laptopBtn")
-let laptopSelect = document.getElementById("laptopSelect")
-let desktopBtn = document.getElementById("desktopBtn")
-let desktopSelect = document.getElementById("desktopSelect")
-
-let mobileSelectStatus = true
-let laptopSelectStatus = true
-let DesktopSelectStatus = true
-
-
-const sizeBtns = [mobileBtn,laptopBtn,desktopBtn]
-const sizeBtnsSelects = [mobileSelect,laptopSelect,desktopSelect]
-
-sizeBtns.forEach((item,index)=>{
-    item.addEventListener("click",()=>{
-        if(mobileSelectStatus){
-            sizeBtnsSelects.forEach(item=>{
-                item.style.display="none"
-            })
-            sizeBtnsSelects[index].style.display="flex"
-
-            mobileSelectStatus = false
-        }else{
-            mobileSelect.style.display="none"
-            mobileSelectStatus = true
-        }
-    })
-})
-
-
-
-mobileBtn.addEventListener("click",()=>{
-    if(mobileSelectStatus){
-        mobileSelect.style.display="flex"
-        mobileSelectStatus = false
-    }else{
-        mobileSelect.style.display="none"
-        mobileSelectStatus = true
-    }
-})
-laptopBtn.addEventListener("click",()=>{
-    if(laptopSelectStatus){
-        laptopSelect.style.display="flex"
-        laptopSelectStatus = false
-    }else{
-        laptopSelect.style.display="none"
-        laptopSelectStatus = true
-    }
-    
-})
-desktopBtn.addEventListener("click",()=>{
-    if(DesktopSelectStatus){
-        desktopSelect.style.display="flex"
-        DesktopSelectStatus = false
-    }else{
-        desktopSelect.style.display="none"
-        DesktopSelectStatus = true
-    }
-})
-
-
-
-
+const textTypeContainer = document.getElementById('textTypeContainer')
 
 
 
@@ -123,6 +57,7 @@ function size(width) {
  var fontsContainerBool = false
  var fontColorContainerBool = false
  var fontBackgroundColorContainerBool = false
+ var textTypeContainerBool = false
 
  function toggleFontsContainer(){
     if (!fontsContainerBool) {
@@ -155,7 +90,15 @@ function size(width) {
     }
     
  }
-
+function openTextTypeContainer(){
+    if (!textTypeContainerBool) {
+        textTypeContainer.style.display='flex' 
+        textTypeContainerBool = true
+    }else{
+        textTypeContainer.style.display='none'
+        textTypeContainerBool = false
+    }
+}
 
  fontBackgroundColorContainer
  // block yer degisim denemeleri
@@ -271,11 +214,21 @@ dragElem.style.backgroundColor=''
     })
   }
 
+  frameContent.body.addEventListener('click',(event)=>{
+    console.log(event.target);
+    //event.target
+    //toggleAttr()
 
+  })
   
   
   var Menu = true
   var Attributes = true
+  var Editting = true
+  let mobileSelectStatus = true
+  let laptopSelectStatus = true
+  let DesktopSelectStatus = true
+
 
   function toggleMenu(){
     if (Menu) {
@@ -306,11 +259,44 @@ dragElem.style.backgroundColor=''
         Attributes = true
     }
   }
+  function openEditting(){
+    if (Editting) {
+        document.querySelector('#edit_bar').style.display='flex'
+        //document.querySelector('#menu').style.transform='translateX(0)'
+        Editting = false
+    }else{
+        document.querySelector('#edit_bar').style.display='none'
+        //document.querySelector('#menu').style.transform='translateX(-250px)'
+        Editting = true
+    }
+  }
 
 
-  frameContent.body.addEventListener('click',(event)=>{
-    console.log(event.target);
-    //event.target
-    //toggleAttr()
-
-  })
+function mobileBtn(){
+    if(mobileSelectStatus){
+        mobileSelect.style.display="flex"
+        mobileSelectStatus = false
+    }else{
+        mobileSelect.style.display="none"
+        mobileSelectStatus = true
+    }
+}
+function laptopBtn(){
+    if(laptopSelectStatus){
+        laptopSelect.style.display="flex"
+        laptopSelectStatus = false
+    }else{
+        laptopSelect.style.display="none"
+        laptopSelectStatus = true
+    }
+    
+}
+function desktopBtn(){
+    if(DesktopSelectStatus){
+        desktopSelect.style.display="flex"
+        DesktopSelectStatus = false
+    }else{
+        desktopSelect.style.display="none"
+        DesktopSelectStatus = true
+    }
+}
