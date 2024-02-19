@@ -393,6 +393,9 @@ iframe{
     border-radius:0 0 10px 10px;
     padding: 10px;
 }
+
+
+
 .createLinkContainer{
     display: none;
     align-items: center;
@@ -400,11 +403,11 @@ iframe{
     position: absolute;
     background-color: #ffffff;
     top: 46px;
-    width: 200px;
+    width: 400px;
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
     border: var(--border-gray);
-    border-radius: 10px;
+    border-radius:0 0 10px 10px;
     padding: 10px;
 }
 .createLinkContainer input

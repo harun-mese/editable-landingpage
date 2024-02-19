@@ -6,8 +6,7 @@ const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
 const textTypeContainer = document.getElementById('textTypeContainer')
-
-
+const createLinkContainer = document.getElementById('createLinkContainer')
 
 
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
@@ -58,6 +57,7 @@ function size(width) {
  var fontColorContainerBool = false
  var fontBackgroundColorContainerBool = false
  var textTypeContainerBool = false
+ var createLinkContainerBool = false
 
  function toggleFontsContainer(){
     if (!fontsContainerBool) {
@@ -99,8 +99,17 @@ function openTextTypeContainer(){
         textTypeContainerBool = false
     }
 }
+function openCreateLinkContainer(){
+    if (!createLinkContainerBool) {
+        createLinkContainer.style.display='flex' 
+        createLinkContainerBool = true
+    }else{
+        createLinkContainer.style.display='none'
+        createLinkContainerBool = false
+    }
+}
 
- fontBackgroundColorContainer
+
  // block yer degisim denemeleri
 
  var blocks = frameContent.querySelectorAll('.block')
