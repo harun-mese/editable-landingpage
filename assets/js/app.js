@@ -61,7 +61,7 @@ function size(width) {
 
  function toggleFontsContainer(){
     if (!fontsContainerBool) {
-        fontsContainer.style.display='block' 
+        fontsContainer.style.display='flex' 
         fontsContainerBool = true
     }else{
         fontsContainer.style.display='none'
@@ -71,7 +71,7 @@ function size(width) {
  }
  function toggleFontColorContainer(){
     if (!fontColorContainerBool) {
-        fontColorContainer.style.display='block' 
+        fontColorContainer.style.display='flex' 
         fontColorContainerBool = true
     }else{
         fontColorContainer.style.display='none'
@@ -82,7 +82,7 @@ function size(width) {
 
  function toggleFontBackgroundColorContainer(){
     if (!fontBackgroundColorContainerBool) {
-        fontBackgroundColorContainer.style.display='block' 
+        fontBackgroundColorContainer.style.display='flex' 
         fontBackgroundColorContainerBool = true
     }else{
         fontBackgroundColorContainer.style.display='none'

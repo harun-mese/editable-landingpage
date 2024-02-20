@@ -357,6 +357,9 @@ iframe{
 }
 .fontsContainer{
     display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     position: absolute;
     background-color: #fff;
     top: 46px;
@@ -368,25 +371,44 @@ iframe{
     padding: 10px;
 }
 .fontsContainer button{
-    font-size: xx-large;
+    font-size: large;
 }
 .fontsContainer button,.fontColorContainer button{
     cursor: pointer;
-    font-size: xx-large;
 }
-.fontColorContainer button{
-    font-weight: 900;
+.fontColorContainer button, .fontBackgroundColorContainer button{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    outline: 1px solid black;
+    border-radius: 50%;
+    margin:0px 2px !important;
 }
 .fontsContainer button:hover, .fontColorContainer button:hover{
     scale: 1.1;
 }
-
-.fontColorContainer,.fontBackgroundColorContainer{
+.fontColorContainer{
     display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     position: absolute;
     background-color: #ffffff;
     top: 46px;
-    width: 400px;
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    border: var(--border-gray);
+    border-radius:0 0 10px 10px;
+    padding: 10px;
+}
+.fontBackgroundColorContainer{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: #ffffff;
+    top: 46px;
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
     border: var(--border-gray);
