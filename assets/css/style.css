@@ -96,7 +96,6 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 #edit_bar{
@@ -421,33 +420,45 @@ iframe{
 .createLinkContainer{
     display: none;
     align-items: center;
-    flex-direction: column;
     position: absolute;
     background-color: #ffffff;
     top: 46px;
-    width: 400px;
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
     border: var(--border-gray);
     border-radius:0 0 10px 10px;
-    padding: 10px;
+    padding: 5px;
 }
 .createLinkContainer input
 {
     padding: 5px 10px;
     outline: none;
     color: gray;
-    margin: 15px 0;
+    margin: 10px 0;
     border: var(--border-gray);
-    border-radius: var(--border-radius);
+    height: 30px;
 }
-.createLinkContainer button
-{
-    background-color: tomato;
-    padding: 5px 10px;
-    border-radius: 10px;
-    color: #fff;
-    width: 50%;
+.createLinkContainer input:hover{
+    background-color: rgba(243, 243, 243, 0.699);
+    border: 1px solid black;
+}
+.createLinkContainer svg{
+    height: 30px;
+    width: 35px;
+    padding: 5px;
+    border: var(--border-gray);
+}
+.createLinkContainer svg:first-child{
+    margin-right: 5px;
+    border-radius:5px 0 0 5px;
+}
+.createLinkContainer svg:last-child{
+    margin-left: 5px;
+    border-radius:0 5px 5px 0;
+}
+.createLinkContainer svg:hover{
+    background-color: rgba(243, 243, 243, 0.699);
+    border: 1px solid black;
 }
 
 
