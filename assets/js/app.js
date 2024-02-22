@@ -1,7 +1,6 @@
 let frame = document.querySelector('iframe')
 var frameContent = frame.contentDocument || frame.contentWindow.document;
 
-var allElements = frameContent.querySelectorAll('.editable')
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
@@ -13,13 +12,10 @@ function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
 }
 
-
-console.log(allElements);
-
+var allElements = frameContent.querySelectorAll('.editable')
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
 var images = frameContent.querySelectorAll('img')
-
 images.forEach(img=>{
     img.addEventListener('click',(e)=>{
     e.target.getAttribute('src')
@@ -39,74 +35,14 @@ scaleSelect.addEventListener('change',()=>{
     frame.style.height = `calc((100vh - 50px) * (1 / ${scaleSelect.value}))`
    
 })
-
 const pagesSelect = document.getElementById('pagesSelect')
 pagesSelect.addEventListener('change',()=>{
 
     frame.src = pagesSelect.value
     
 })
-
-
 function size(width) { 
    frame.width = width
-}
-
-
- var fontsContainerBool = false
- var fontColorContainerBool = false
- var fontBackgroundColorContainerBool = false
- var textTypeContainerBool = false
- var createLinkContainerBool = false
-
- function toggleFontsContainer(){
-    if (!fontsContainerBool) {
-        fontsContainer.style.display='flex' 
-        fontsContainerBool = true
-    }else{
-        fontsContainer.style.display='none'
-        fontsContainerBool = false
-    }
-    
- }
- function toggleFontColorContainer(){
-    if (!fontColorContainerBool) {
-        fontColorContainer.style.display='flex' 
-        fontColorContainerBool = true
-    }else{
-        fontColorContainer.style.display='none'
-        fontColorContainerBool = false
-    }
-    
- }
-
- function toggleFontBackgroundColorContainer(){
-    if (!fontBackgroundColorContainerBool) {
-        fontBackgroundColorContainer.style.display='flex' 
-        fontBackgroundColorContainerBool = true
-    }else{
-        fontBackgroundColorContainer.style.display='none'
-        fontBackgroundColorContainerBool = false
-    }
-    
- }
-function openTextTypeContainer(){
-    if (!textTypeContainerBool) {
-        textTypeContainer.style.display='flex' 
-        textTypeContainerBool = true
-    }else{
-        textTypeContainer.style.display='none'
-        textTypeContainerBool = false
-    }
-}
-function openCreateLinkContainer(){
-    if (!createLinkContainerBool) {
-        createLinkContainer.style.display='flex' 
-        createLinkContainerBool = true
-    }else{
-        createLinkContainer.style.display='none'
-        createLinkContainerBool = false
-    }
 }
 
 
@@ -132,18 +68,12 @@ function addBlocksIdsList(){
     </svg>${blockId}</li>
     `
     })
-//console.log(blockList);
 }
 addBlocksIdsList()
 
 
 var container, targetElem, dragElem
 container = document.getElementById('blocks')
-
-//container.addEventListener('drop',drop(event))
-//container.addEventListener('dragover',dragOver(event))
-//container.addEventListener('dragend',dragEnd(event))
-//container.addEventListener('dragleave',dragLeave(event))
 
 var newBlockList =[]
 
@@ -167,6 +97,7 @@ function drop(e){
     newOrderBlocks()
     orderFrameContent()
 }
+
 function dragStart(e){
     e.dataTransfer.setData('p', e.target.id,);
    // console.log('drag started');
@@ -176,7 +107,6 @@ function dragStart(e){
     //console.log(dragElem);
    
 }
-
 function dragOver(e) {
     e.preventDefault();
     //e.target.style.borderTop="1px solid gray"
@@ -190,11 +120,9 @@ function dragOver(e) {
     }
     //newOrderBlocks()
 }
-
 function dragLeave(e) {
     e.preventDefault();
 }
-
 function dragEnd(e) {
 e.preventDefault();
 dragElem.style.backgroundColor=''
@@ -202,17 +130,16 @@ dragElem.style.backgroundColor=''
 
   
 
-  function newOrderBlocks(){
+
+function newOrderBlocks(){
    newBlockList = []
    var blockList = container.querySelectorAll('li')
    blockList.forEach(block=>{
      newBlockList.push(block.getAttribute('id'))
    })
    //console.log('son durum:', newBlockList);
-  }
-
-
-  function orderFrameContent(){
+}
+function orderFrameContent(){
     const frameBlocks = frameContent.querySelectorAll('.block')
     newBlockList.forEach(item=>{
         frameBlocks.forEach(block=>{
@@ -221,14 +148,16 @@ dragElem.style.backgroundColor=''
             }
         })
     })
-  }
+}
 
-  frameContent.body.addEventListener('click',(event)=>{
-    console.log(event.target);
-    //event.target
-    //toggleAttr()
 
-  })
+  
+//   frameContent.body.addEventListener('click',(event)=>{
+//     console.log(event.target);
+//     //event.target
+//     //toggleAttr()
+
+//   })
   
   
   var Menu = true
@@ -238,8 +167,60 @@ dragElem.style.backgroundColor=''
   let laptopSelectStatus = true
   let DesktopSelectStatus = true
 
-
-  function toggleMenu(){
+  var fontsContainerBool = false
+  var fontColorContainerBool = false
+  var fontBackgroundColorContainerBool = false
+  var textTypeContainerBool = false
+  var createLinkContainerBool = false
+ 
+function toggleFontsContainer(){
+     if (!fontsContainerBool) {
+         fontsContainer.style.display='flex' 
+         fontsContainerBool = true
+     }else{
+         fontsContainer.style.display='none'
+         fontsContainerBool = false
+     }
+     
+}
+function toggleFontColorContainer(){
+     if (!fontColorContainerBool) {
+         fontColorContainer.style.display='flex' 
+         fontColorContainerBool = true
+     }else{
+         fontColorContainer.style.display='none'
+         fontColorContainerBool = false
+     }
+     
+}
+function toggleFontBackgroundColorContainer(){
+     if (!fontBackgroundColorContainerBool) {
+         fontBackgroundColorContainer.style.display='flex' 
+         fontBackgroundColorContainerBool = true
+     }else{
+         fontBackgroundColorContainer.style.display='none'
+         fontBackgroundColorContainerBool = false
+     }
+}
+function openTextTypeContainer(){
+     if (!textTypeContainerBool) {
+         textTypeContainer.style.display='flex' 
+         textTypeContainerBool = true
+     }else{
+         textTypeContainer.style.display='none'
+         textTypeContainerBool = false
+     }
+}
+function openCreateLinkContainer(){
+     if (!createLinkContainerBool) {
+         createLinkContainer.style.display='flex' 
+         createLinkContainerBool = true
+     }else{
+         createLinkContainer.style.display='none'
+         createLinkContainerBool = false
+     }
+}
+function toggleMenu(){
     if (Menu) {
         document.querySelector('#menu').style.width='250px'
         //document.querySelector('#menu').style.transform='translateX(0)'
@@ -249,8 +230,8 @@ dragElem.style.backgroundColor=''
         //document.querySelector('#menu').style.transform='translateX(-250px)'
         Menu = true
     }
-  }
-  function toggleAttr(){
+}
+function toggleAttr(){
    //clickFrameContentBtn.style.color = 'tomoto'
    document.querySelector('#clickFrameContentBtn').style.color = 'tomato'
     if (Attributes) {
@@ -267,8 +248,8 @@ dragElem.style.backgroundColor=''
         document.querySelector('#clickFrameContentBtn').style.color = 'black'
         Attributes = true
     }
-  }
-  function openEditting(){
+}
+function openEditting(){
     if (Editting) {
         document.querySelector('#edit_bar').style.display='flex'
         //document.querySelector('#menu').style.transform='translateX(0)'
@@ -278,9 +259,7 @@ dragElem.style.backgroundColor=''
         //document.querySelector('#menu').style.transform='translateX(-250px)'
         Editting = true
     }
-  }
-
-
+}
 function mobileBtn(){
     if(mobileSelectStatus){
         mobileSelect.style.display="flex"
@@ -309,3 +288,4 @@ function desktopBtn(){
         DesktopSelectStatus = true
     }
 }
+
